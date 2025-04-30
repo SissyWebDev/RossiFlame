@@ -3,15 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Web Page</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>ROSSI and the FLAME</title>
+    <link rel="stylesheet" href="assets/styles/reset.css" />
+    <link rel="stylesheet" href="assets/styles/styles.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for player icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Music Player Styles -->
+    <link rel="stylesheet" href="assets/styles/player.css">
 </head>
 <body>
     <header>
         <div class="container">
             <div class="logo">
-                <h1>Company Name</h1>
+                <a href="index.html">
+                    <img src="assets/images/logos/13.1-LogoFancy-BlackBkGrd.webp" alt="Rossi Flame Logo">
+                  
+                <h1>ROSSI and the FLAME</h1>
+            </a>
             </div>
             <nav>
                 <input type="checkbox" id="nav-toggle" class="nav-toggle">
@@ -19,22 +30,80 @@
                     <i class="fas fa-bars"></i>
                 </label>
                 <ul>
-                    <li><a href="#" class="active">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Portfolio</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="#" class="active">Fans</a></li>
+                    <li><a href="#">Bookings</a></li>
+                    <li><a href="#">Press Kit</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h2>Welcome to Our Website</h2>
-                <p>A fully responsive web template that looks great on any device.</p>
-                <a href="#" class="btn">Learn More</a>
+        <div class="hero-image">
+            <!-- The wide banner will show by default -->
+            <img class="wide-banner" src="assets/images/banners/RossiFlame-Header1200x576.webp" alt="Rossi Flame Banner">
+            <!-- The square banner will be hidden until the media query activates it -->
+            <img class="square-banner" src="assets/images/banners/RossiFlame-Header1200x576.webp" alt="Rossi Flame Banner">
+        </div>
+    </section>
+
+    <section class="player-container">
+        <div class="sidebar">
+            <h2>Albums</h2>
+            <div class="album-list" id="albumList">
+                <!-- Album list will be populated by JavaScript -->
+            </div>
+        </div>
+        
+        <div class="player-content">
+            <div class="current-album">
+                <div class="album-cover featured-album">
+                    <div class="featured-label">Featured</div>
+                    <a href="#" id="defaultAlbumLink">
+                        <img id="albumCover" src="assets/images/albums/This-is-NOT-YOUR-LIGHTER-cover-1024x1024.webp" alt="Album Cover">
+                    </a>
+                </div>
+                <div class="album-info">
+                    <h2 id="albumTitle">Select an Album</h2>
+                </div>
+            </div>
+        </div>
+            
+            <div class="song-list" id="songList">
+                <!-- Song list will be populated by JavaScript -->
+            </div>
+            
+            <div class="player-controls">
+                <div class="song-info">
+                    <p id="currentTrack">No track selected</p>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-bar" id="progressBar">
+                        <div class="progress" id="progress"></div>
+                    </div>
+                    <div class="time-display">
+                        <span id="currentTime">0:00</span> / <span id="totalTime">0:00</span>
+                    </div>
+                </div>
+                <div class="controls">
+                    <button id="prevBtn" class="control-btn" aria-label="Previous track">
+                        <i class="fas fa-step-backward"></i>
+                    </button>
+                    <button id="playBtn" class="control-btn" aria-label="Play or pause">
+                        <i class="fas fa-play"></i>
+                    </button>
+                    <button id="nextBtn" class="control-btn" aria-label="Next track">
+                        <i class="fas fa-step-forward"></i>
+                    </button>
+                    <div class="volume-container">
+                        <button id="muteBtn" class="control-btn" aria-label="Mute or unmute">
+                            <i class="fas fa-volume-up"></i>
+                        </button>
+                        <div class="volume-slider-container">
+                            <input type="range" min="0" max="100" value="100" class="volume-slider" id="volumeSlider">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -126,5 +195,11 @@
             </div>
         </div>
     </footer>
+    <!-- Howler.js Audio Library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
+
+<!-- Music Player Scripts -->
+<script src="assets/scripts/player-data.js"></script>
+<script src="assets/scripts/player.js"></script>
 </body>
 </html>

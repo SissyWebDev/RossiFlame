@@ -1,0 +1,412 @@
+/* Base Styles */
+:root {
+    --main-color: #A6A6A6;
+    --highlight-color: #940000;
+    --text-color: #000000;
+    --background-color: #FFFFFF;
+    --gray-light: #e0e0e0;
+    --gray-dark: #757575;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --transition-speed: 0.3s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* Player Container */
+.player-container {
+    display: flex;
+    max-width: 1200px;
+    margin: 2rem auto;
+    background-color: var(--gray-light);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 5px 15px var(--shadow-color);
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 250px;
+    background-color: var(--main-color);
+    padding: 1.5rem;
+    overflow-y: auto;
+    max-height: 600px;
+}
+
+.sidebar h2 {
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    text-align: center;
+    border-bottom: 2px solid var(--highlight-color);
+    padding-bottom: 0.5rem;
+}
+
+.album-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.album-item {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background-color var(--transition-speed);
+}
+
+.album-item:hover, .album-item.active {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.album-item.active {
+    border-left: 3px solid var(--highlight-color);
+}
+
+.album-item-cover {
+    width: 50px;
+    height: 50px;
+    border-radius: 4px;
+    margin-right: 0.75rem;
+    object-fit: cover;
+}
+
+.album-item-info {
+    overflow: hidden;
+}
+
+.album-item-title {
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.album-item-artist {
+    font-size: 0.8rem;
+    color: var(--text-color);
+    opacity: 0.7;
+}
+
+/* Featured album styling */
+.featured-album {
+    position: relative;
+    overflow: hidden;
+    background-color: transparent; /* Add this */
+}
+
+.featured-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(148, 0, 0, 0.8); /* Using your highlight color with opacity */
+    color: #ffffff;
+    text-align: center;
+    padding: 5px 0;
+    font-weight: bold;
+    z-index: 5;
+}
+
+#defaultAlbumLink {
+    display: block;
+    transition: transform 0.3s ease;
+    width: 100%;
+    height: 100%;
+    background-color: transparent; /* Add this */
+    font-size: 0; /* Add this to eliminate any potential whitespace */
+    line-height: 0; /* Add this to eliminate any potential whitespace */
+}
+
+#defaultAlbumLink img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block; /* Add this */
+}
+
+#albumCover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    margin: 0; /* Add this */
+    padding: 0; /* Add this */
+}
+/* Player Content Styles */
+.player-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--background-color);
+    padding: 1.5rem;
+}
+
+.current-album {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.album-cover {
+    width: 150px;
+    height: 150px;
+    margin-right: 1.5rem;
+    box-shadow: 0 4px 8px var(--shadow-color);
+    border-radius: 4px;
+    overflow: hidden;
+    display: block;
+    background-color: transparent; /* Add this */
+}
+
+.album-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.album-info h2 {
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+
+/* Song List Styles */
+.song-list {
+    flex: 1;
+    overflow-y: auto;
+    margin-bottom: 1.5rem;
+    background-color: var(--gray-light);
+    border-radius: 0.25rem;
+    padding: 0.5rem;
+}
+
+.song-item {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem;
+    border-radius: 0.25rem;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+    transition: background-color var(--transition-speed);
+}
+
+.song-item:hover, .song-item.active {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.song-item.active {
+    background-color: var(--highlight-color);
+    color: var(--background-color);
+}
+
+.song-number {
+    width: 30px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.song-details {
+    flex: 1;
+    margin-left: 0.5rem;
+}
+
+.song-title {
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+}
+
+.song-duration {
+    margin-left: 1rem;
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+/* Player Controls Styles */
+.player-controls {
+    background-color: var(--main-color);
+    padding: 1rem;
+    border-radius: 0.25rem;
+}
+
+.song-info {
+    text-align: center;
+    margin-bottom: 0.5rem;
+    height: 24px;
+}
+
+.progress-container {
+    margin-bottom: 1rem;
+}
+
+.progress-bar {
+    height: 8px;
+    background-color: var(--gray-dark);
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+    position: relative;
+}
+
+.progress {
+    height: 100%;
+    background-color: var(--highlight-color);
+    border-radius: 4px;
+    width: 0;
+    transition: width 0.1s linear;
+}
+
+.time-display {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.control-btn {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.2rem;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color var(--transition-speed);
+}
+
+.control-btn:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+#playBtn {
+    background-color: var(--highlight-color);
+    color: var(--background-color);
+    font-size: 1.5rem;
+}
+
+#playBtn:hover {
+    background-color: #7a0000;
+}
+
+.volume-container {
+    display: flex;
+    align-items: center;
+}
+
+.volume-slider-container {
+    width: 80px;
+    margin-left: 0.5rem;
+}
+
+.volume-slider {
+    width: 100%;
+    height: 5px;
+    -webkit-appearance: none;
+    appearance: none;
+    background: var(--gray-dark);
+    border-radius: 2.5px;
+    outline: none;
+}
+
+.volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--highlight-color);
+    cursor: pointer;
+}
+
+.volume-slider::-moz-range-thumb {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--highlight-color);
+    cursor: pointer;
+    border: none;
+}
+
+/* Responsive Styles */
+
+/*For mobile-first design*/
+@media screen and (min-width: 768px) {
+    .current-album {
+        flex-direction: row; /* This changes it to side-by-side on larger screens */
+    }
+}
+
+/*For smaller screens*/
+@media screen and (max-width: 768px) {
+    .player-container {
+        flex-direction: column;
+        margin: 1rem;
+    }
+
+    .sidebar {
+        width: 100%;
+        max-height: 200px;
+    }
+
+    .current-album {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1.5rem;
+        flex-direction: column; /* Add this for mobile/stacked layout */
+    }
+
+    .album-cover {
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+
+    .controls {
+        gap: 0.5rem;
+    }
+
+    .volume-slider-container {
+        width: 60px;
+    }
+}
+
+/* For very small screens */
+@media screen and (max-width: 480px) {
+    .control-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+    }
+
+    #playBtn {
+        font-size: 1.2rem;
+    }
+
+    .song-item {
+        padding: 0.5rem;
+    }
+
+    .volume-slider-container {
+        display: none;
+    }
+}
