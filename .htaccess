@@ -1,0 +1,5 @@
+AddType audio/mpeg .mp3
+AddType audio/wav .wav
+<Files "*.mp3">
+    Header set Cache-Control "max-age=2592000"
+</Files>

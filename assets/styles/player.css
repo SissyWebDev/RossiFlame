@@ -3,11 +3,11 @@
     --main-color: #A6A6A6;
     --highlight-color: #940000;
     --text-color: #000000;
-    --background-color: #FFFFFF;
     --gray-light: #e0e0e0;
     --gray-dark: #757575;
     --shadow-color: rgba(0, 0, 0, 0.1);
     --transition-speed: 0.3s;
+    --body-font: 'Inter', Helvetica, Arial, sans-serif;
 }
 
 * {
@@ -17,33 +17,52 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: var(--background-color);
+    font-family: var(--body-font);
     color: var(--text-color);
     line-height: 1.6;
 }
 
 /* Player Container */
+
 .player-container {
+    position: relative;
+    padding-bottom: 3vh;
+
+}
+
+.player-container::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 1px;
+    background-color: var(--primary-color);
+}
+
+.player {
     display: flex;
-    max-width: 1200px;
+    max-width: 90%;
     margin: 2rem auto;
-    background-color: var(--gray-light);
     border-radius: 0.5rem;
     overflow: hidden;
-    box-shadow: 0 5px 15px var(--shadow-color);
+    border: 7px solid #940000;
+    outline: 5px solid #000000;
+    height: 25rem;
 }
 
 /* Sidebar Styles */
 .sidebar {
-    width: 250px;
+    /* width: 250px; */
     background-color: var(--main-color);
-    padding: 1.5rem;
+    /* padding: 1.15rem; */
     overflow-y: auto;
-    max-height: 600px;
+    height: 100%;
+    margin: 0 1rem 0 0;
 }
 
-.sidebar h2 {
+.sidebar h3 {
     color: var(--text-color);
     margin-bottom: 1rem;
     text-align: center;
@@ -66,7 +85,8 @@ body {
     transition: background-color var(--transition-speed);
 }
 
-.album-item:hover, .album-item.active {
+.album-item:hover,
+.album-item.active {
     background-color: rgba(255, 255, 255, 0.3);
 }
 
@@ -83,14 +103,13 @@ body {
 }
 
 .album-item-info {
-    overflow: hidden;
+    overflow-wrap: break-word;
 }
 
 .album-item-title {
     font-weight: bold;
     margin-bottom: 0.25rem;
     white-space: nowrap;
-    overflow: hidden;
     text-overflow: ellipsis;
 }
 
@@ -104,7 +123,7 @@ body {
 .featured-album {
     position: relative;
     overflow: hidden;
-    background-color: transparent; /* Add this */
+    background-color: transparent;
 }
 
 .featured-label {
@@ -112,7 +131,7 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(148, 0, 0, 0.8); /* Using your highlight color with opacity */
+    background-color: rgba(148, 0, 0, 0.8);
     color: #ffffff;
     text-align: center;
     padding: 5px 0;
@@ -125,16 +144,16 @@ body {
     transition: transform 0.3s ease;
     width: 100%;
     height: 100%;
-    background-color: transparent; /* Add this */
-    font-size: 0; /* Add this to eliminate any potential whitespace */
-    line-height: 0; /* Add this to eliminate any potential whitespace */
+    background-color: transparent;
+    font-size: 0;
+    line-height: 0;
 }
 
 #defaultAlbumLink img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: block; /* Add this */
+    display: block;
 }
 
 #albumCover {
@@ -142,22 +161,27 @@ body {
     height: 100%;
     object-fit: cover;
     display: block;
-    margin: 0; /* Add this */
-    padding: 0; /* Add this */
+    margin: 0;
+    padding: 0;
 }
+
 /* Player Content Styles */
 .player-content {
-    flex: 1;
     display: flex;
-    flex-direction: column;
-    background-color: var(--background-color);
+    background-color: #fff;
     padding: 1.5rem;
+    height: 100%;
+    overflow: hidden;
 }
 
 .current-album {
     display: flex;
     align-items: center;
-    margin-bottom: 1.5rem;
+}
+
+#currentTrack {
+    font-weight: bold;
+    font-size: larger;
 }
 
 .album-cover {
@@ -168,7 +192,7 @@ body {
     border-radius: 4px;
     overflow: hidden;
     display: block;
-    background-color: transparent; /* Add this */
+    background-color: transparent;
 }
 
 .album-cover img {
@@ -177,19 +201,32 @@ body {
     object-fit: cover;
 }
 
-.album-info h2 {
-    color: var(--text-color);
+.album-info h3 {
     margin-bottom: 0.5rem;
 }
 
 /* Song List Styles */
+
+.placeholder-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: #999;
+    font-style: italic;
+    text-align: center;
+    padding: 2rem;
+    pointer-events: none;
+    /* Makes it unclickable */
+}
+
 .song-list {
-    flex: 1;
+    /* flex: 1; */
     overflow-y: auto;
-    margin-bottom: 1.5rem;
     background-color: var(--gray-light);
     border-radius: 0.25rem;
     padding: 0.5rem;
+    min-height: 0;
 }
 
 .song-item {
@@ -202,7 +239,8 @@ body {
     transition: background-color var(--transition-speed);
 }
 
-.song-item:hover, .song-item.active {
+.song-item:hover,
+.song-item.active {
     background-color: rgba(255, 255, 255, 0.5);
 }
 
@@ -215,11 +253,13 @@ body {
     width: 30px;
     text-align: center;
     font-weight: bold;
+    color: var(--text-color);
 }
 
 .song-details {
     flex: 1;
     margin-left: 0.5rem;
+    color: var(--text-color);
 }
 
 .song-title {
@@ -242,7 +282,7 @@ body {
 
 .song-info {
     text-align: center;
-    margin-bottom: 0.5rem;
+    margin-bottom: 3rem;
     height: 24px;
 }
 
@@ -353,27 +393,38 @@ body {
 /*For mobile-first design*/
 @media screen and (min-width: 768px) {
     .current-album {
-        flex-direction: row; /* This changes it to side-by-side on larger screens */
+        flex-direction: row;
+        /* This changes it to side-by-side on larger screens */
+        flex: 1;
     }
 }
 
 /*For smaller screens*/
 @media screen and (max-width: 768px) {
-    .player-container {
+    .player {
         flex-direction: column;
-        margin: 1rem;
+        margin: 2rem;
+        height: auto;
     }
 
     .sidebar {
         width: 100%;
         max-height: 200px;
+        height: auto;
+    }
+
+    .sidebar,
+    .player-content {
+        flex: 1;
+        /* Each takes equal vertical space */
     }
 
     .current-album {
         display: flex;
         align-items: center;
         margin-bottom: 1.5rem;
-        flex-direction: column; /* Add this for mobile/stacked layout */
+        flex-direction: column;
+        /* Added this for mobile/stacked layout */
     }
 
     .album-cover {
@@ -387,6 +438,133 @@ body {
 
     .volume-slider-container {
         width: 60px;
+    }
+}
+
+/* Medium screens (tablets) - column layout but all visible */
+@media screen and (min-width: 769px) and (max-width: 1194px) {
+    .player {
+        flex-direction: column;
+        /* Keep column layout */
+        height: 55rem;
+        /* Maintain height constraint */
+        max-width: 90%;
+        /* Allow more width usage */
+    }
+
+    .sidebar {
+        width: 100%;
+        height: 10rem;
+        padding: 1rem;
+        max-height: none;
+    }
+
+    .sidebar h3 {
+        margin-bottom: 0.5rem;
+        font-size: 1rem;
+    }
+
+    .album-list {
+        display: flex;
+        flex-direction: row;
+        /* Horizontal album list */
+        justify-content: center;
+        gap: 1rem;
+        overflow-x: auto;
+    }
+
+    .album-item {
+        flex: 0 0 auto;
+        min-width: 120px;
+        padding: 0.5rem;
+    }
+
+    .album-item-cover {
+        width: 40px;
+        height: 40px;
+    }
+
+    .album-item-title {
+        font-size: 0.8rem;
+    }
+
+    .album-item-artist {
+        font-size: 0.7rem;
+    }
+
+    .player-content {
+        flex: 1;
+        padding-top: 1rem;
+        padding-right: 1rem;
+        padding-bottom: 3.5rem;
+        padding-left: 1rem;
+        min-height: 0;
+        /* Remove fixed height constraint */
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+    }
+
+    .current-album {
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 1rem;
+        flex-shrink: 0;
+        justify-content: center;
+    }
+}
+
+.album-cover {
+    width: 100px;
+    height: 100px;
+    margin-right: 0;
+    margin-bottom: 0.5rem;
+    flex: 1;
+}
+
+.song-list {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+}
+
+.player-controls {
+    flex: 1;
+    padding: 0.75rem;
+}
+
+/* For large screens - existing layout but with height control */
+@media screen and (min-width: 1195px) {
+    .player {
+        flex-direction: row;
+        /* Side-by-side layout */
+        height: 20rem;
+        /* Maintain height constraint */
+    }
+
+    .sidebar {
+        width: 250px;
+        height: 100%;
+        padding: 1.5rem;
+    }
+
+    .current-album {
+        flex-direction: column;
+        align-items: center;
+        /* Center everything */
+        text-align: center;
+    }
+
+    .album-cover {
+        width: 200px;
+        /* Or whatever full width you want */
+        height: 200px;
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+
+    .album-info {
+        width: 100%;
     }
 }
 

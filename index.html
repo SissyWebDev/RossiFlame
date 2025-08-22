@@ -1,78 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ROSSI and the FLAME</title>
     <link rel="stylesheet" href="assets/styles/reset.css" />
-    <link rel="stylesheet" href="assets/styles/styles.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome for player icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Music Player Styles -->
     <link rel="stylesheet" href="assets/styles/player.css">
+    <link rel="stylesheet" href="assets/styles/styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oregano:ital@0;1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome for player icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 </head>
+
 <body>
+    <!--********************************************-->
+    <!--********************************************-->
+    <!--*********--------Header-----------**********-->
+    <!--********************************************-->
+    <!--********************************************-->
+
     <header>
         <div class="container">
+
             <div class="logo">
                 <a href="index.html">
                     <img src="assets/images/logos/13.1-LogoFancy-BlackBkGrd.webp" alt="Rossi Flame Logo">
-                  
-                <h1>ROSSI and the FLAME</h1>
-            </a>
+
+                    <h1>ROSSI and the FLAME</h1>
+                </a>
             </div>
+
             <nav>
                 <input type="checkbox" id="nav-toggle" class="nav-toggle">
                 <label for="nav-toggle" class="nav-toggle-label">
                     <i class="fas fa-bars"></i>
                 </label>
                 <ul>
-                    <li><a href="#" class="active">Fans</a></li>
-                    <li><a href="#">Bookings</a></li>
-                    <li><a href="#">Press Kit</a></li>
+                    <li><a href="#">Fans</a></li>
+                    <li><a href="mailto:booking@rossiflame.com?subject=Booking Inquiry">Bookings</a></li>
+                    <li><a href="mailto:rossi@rossiflame.com?subject=Contact Inquiry">Contact</a></li>
                 </ul>
             </nav>
+
         </div>
     </header>
 
+    <!--********************************************-->
+    <!--********************************************-->
+    <!--***********--------Hero-----------**********-->
+    <!--********************************************-->
+    <!--********************************************-->
     <section class="hero">
         <div class="hero-image">
             <!-- The wide banner will show by default -->
-            <img class="wide-banner" src="assets/images/banners/RossiFlame-Header1200x576.webp" alt="Rossi Flame Banner">
+            <img class="wide-banner" src="assets/images/banners/RossiFlame-Header1200x576.webp"
+                alt="Rossi Flame Banner">
             <!-- The square banner will be hidden until the media query activates it -->
-            <img class="square-banner" src="assets/images/banners/RossiFlame-Header1200x576.webp" alt="Rossi Flame Banner">
+            <img class="square-banner" src="assets/images/banners/RossiFlame-Header1200x576.webp"
+                alt="Rossi Flame Banner">
         </div>
     </section>
 
-    <section class="player-container">
-        <div class="sidebar">
-            <h2>Albums</h2>
-            <div class="album-list" id="albumList">
-                <!-- Album list will be populated by JavaScript -->
-            </div>
+    <!--********************************************-->
+    <!--********************************************-->
+    <!--*********---------Intro-----------**********-->
+    <!--********************************************-->
+    <!--********************************************-->
+
+    <section class="headline flex-box">
+        <h2>For Your Listening Pleasure...</h2>
+        <div class="headline-copy">
+            <p>What is an artist without an audience? Lonely at best!</p>
+            <p>So please enjoy these complementary offerings, covering 27 years of musical inspiration -- <br>and skip
+                the corporate subscription.😎</p>
         </div>
-        
-        <div class="player-content">
+    </section>
+
+    <!--********************************************-->
+    <!--********************************************-->
+    <!--*********--------Player-----------**********-->
+    <!--********************************************-->
+    <!--********************************************-->
+
+    <section class="player-container">
+
+        <h2 class="decorative-type flexbox">Rossi's Red Hot Juke Box</h2>
+
+        <section class="player">
+
+            <div class="sidebar">
+                <h3>Albums</h3>
+                <div class="album-list" id="albumList">
+                    <!-- Album list will be populated by JavaScript -->
+                </div>
+            </div>
+
             <div class="current-album">
                 <div class="album-cover featured-album">
                     <div class="featured-label">Featured</div>
                     <a href="#" id="defaultAlbumLink">
-                        <img id="albumCover" src="assets/images/albums/This-is-NOT-YOUR-LIGHTER-cover-1024x1024.webp" alt="Album Cover">
+                        <img id="albumCover" src="assets/images/albums/This-is-NOT-YOUR-LIGHTER-cover-1024x1024.webp"
+                            alt="Album Cover">
                     </a>
                 </div>
                 <div class="album-info">
-                    <h2 id="albumTitle">Select an Album</h2>
+                    <h3 id="albumTitle">Select an Album</h3>
                 </div>
             </div>
-        </div>
-            
+
             <div class="song-list" id="songList">
+                <div class="placeholder-text">Select an album to view track listing
+                </div>
                 <!-- Song list will be populated by JavaScript -->
             </div>
-            
+
             <div class="player-controls">
                 <div class="song-info">
                     <p id="currentTrack">No track selected</p>
@@ -105,101 +156,221 @@
                     </div>
                 </div>
             </div>
-        </div>
+
+        </section>
+
     </section>
 
-    <section class="features">
-        <div class="container">
-            <h2 class="section-title">Our Features</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <i class="fas fa-mobile-alt"></i>
-                    <h3>Responsive Design</h3>
-                    <p>Looks great on all devices, from mobile phones to desktop computers.</p>
-                </div>
-                <div class="feature-card">
-                    <i class="fas fa-paint-brush"></i>
-                    <h3>Modern Look</h3>
-                    <p>Clean, modern aesthetics that highlight your content effectively.</p>
-                </div>
-                <div class="feature-card">
-                    <i class="fas fa-code"></i>
-                    <h3>Clean Code</h3>
-                    <p>Written with best practices for easy customization and maintenance.</p>
-                </div>
-                <div class="feature-card">
-                    <i class="fas fa-rocket"></i>
-                    <h3>Fast Loading</h3>
-                    <p>Optimized for speed to ensure visitors don't wait around.</p>
+    <!--********************************************-->
+    <!--********************************************-->
+    <!--*********Email Sign-Up Options**************-->
+    <!--********************************************-->
+    <!--********************************************-->
+
+    <section class="mailerLite container">
+
+        <h2>🔥 Join the Flame 🔥</h2>
+
+        <!--********************************************-->
+        <!--********************************************-->
+        <!--*********MailerLite Embedding Code**********-->
+        <!--********************************************-->
+        <!--********************************************-->
+
+        <div id="mlb2-25041447" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-25041447">
+            <div id="mlb2-25041447" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-25041447">
+                <div class="ml-form-align-center ">
+                    <div class="ml-form-embedWrapper embedForm">
+                        <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
+                            <div class="ml-form-embedContent" style=" ">
+                                <h3>Automated Email</h3>
+                                <p>Get updates about album releases and upcoming shows!</p>
+
+                            </div>
+
+                            <form class="ml-block-form"
+                                action="https://assets.mailerlite.com/jsonp/1463390/forms/152218908498069220/subscribe"
+                                data-code="" method="post" target="_blank">
+                                <div class="ml-form-formContent">
+                                    <div class="ml-form-fieldRow ml-last-item">
+                                        <div
+                                            class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
+
+                                            <input aria-label="email" aria-required="true" type="email"
+                                                class="form-control" data-inputmask="" name="fields[email]"
+                                                placeholder="Email" autocomplete="email">
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <input type="hidden" name="ml-submit" value="1">
+
+                                <div class="ml-form-embedSubmit">
+
+                                    <button type="submit" class="primary">Subscribe</button>
+
+                                    <button disabled="disabled" style="display: none;" type="button" class="loading">
+                                        <div class="ml-form-embedSubmitLoad"></div>
+                                        <span class="sr-only">Loading...</span>
+                                    </button>
+                                </div>
+                                <input type="hidden" name="anticsrf" value="true">
+                            </form>
+
+                        </div>
+
+                        <div class="ml-form-successBody row-success" style="display: none">
+
+                            <div class="ml-form-successContent">
+
+                                <h4>Thank you!</h4>
+
+                                <p>You have successfully joined our subscriber list.</p>
+
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
 
-    <section class="about">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2 class="section-title">About Us</h2>
-                    <p>This line is testing Git branch changes and publishing. Currently I am editing it the original index.html, witht he indicator at the bottom of VS Code displaying "1st-Branch-Test" which is the name I gave to the branch I created.</p>
-                    <p>Sed vitae condimentum lectus. Vivamus dignissim magna eget arcu dignissim, vel lobortis arcu ullamcorper. Sed iaculis, orci vel auctor aliquet.</p>
-                    <a href="#" class="btn">Read More</a>
-                </div>
-                <div class="about-image">
-                    <img src="/api/placeholder/600/400" alt="About Us Image">
+        <!--********************************************-->
+        <!--********************************************-->
+        <!--***************Snail Mail*******************-->
+        <!--********************************************-->
+        <!--********************************************-->
+
+        <div class="snail-mail-container">
+            <div class="snail-mail-wrapper">
+                <div class="snail-mail-body">
+                    <div class="snail-mail-content">
+                        <h3>Prefer Snail Mail?</h3>
+                        <p>Just drop us a line with your name and address, and we'll do the rest!</p>
+                    </div>
+
+                    <div class="snail-mail-field">
+                        <div class="snail-mail-email-display" id="snail-mail-address">
+                            snail<span aria-hidden="true">.</span>mail<span aria-hidden="true"> [at]
+                            </span>rossiflame<span aria-hidden="true"> [dot] </span>com
+                        </div>
+                    </div>
+
+                    <div class="snail-mail-submit">
+                        <a href="#" class="snail-mail-button" id="open-email-btn">Open Email</a>
+                    </div>
                 </div>
             </div>
         </div>
+
     </section>
 
-    <section class="cta">
-        <div class="container">
-            <h2>Ready to Get Started?</h2>
-            <p>Join thousands of satisfied customers using our services.</p>
-            <a href="#" class="btn btn-light">Contact Us Today</a>
+    <!--********************************************-->
+    <!--********************************************-->
+    <!--********--------Tip Jar-----------**********-->
+    <!--********************************************-->
+    <!--********************************************-->
+
+    <section class="tipJar flex-box">
+        <div class="tipJar-banner">
+            <img src="assets/images/banners/02-TipJar-Left75x95.png" alt="Left Tip Jar Graphic"
+                class="tip-banner-img-left">
+            <h2>We Have A Tip Jar!</h2>
+            <img src="assets/images/banners/03-TipJar-Right75x95.png" alt="Right Tip Jar Graphic"
+                class="tip-banner-img-right">
+        </div>
+        <div class="tipJar-copy">
+            <p>Great for tips, merch, or just general support because our music brightens your day. 🌞😎🌞</p>
+            <p>We encourage you to "buy" our record here, even if listening for free online -- <br>Your generous
+                contributions is what keeps the Rossi Flame Jukebax playing!</p>
+            <h4>Follow These Links -- Cause There's No Nation Like a Donation!</h4>
+            <p><a href="https://venmo.com/u/remrossi" target="_blank" rel="noopener">Venmo: @RossiFlame</a></p>
+            <p><a href="https://cash.app/$remrossi" target="_blank" rel="noopener">CashApp: $RemRossi</a></p>
         </div>
     </section>
+
+    <!--********************************************-->
+    <!--********************************************-->
+    <!--*********--------Footer-----------**********-->
+    <!--********************************************-->
+    <!--********************************************-->
 
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Company Name</h3>
-                    <p>A brief description of your company or website goes here.</p>
-                    <div class="social-icons">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                    </div>
+
+                <div class="footer-title">
+                    <h2>Rossi and the Flame</h2>
+                    <p>Eclectic jams are here to set your heart alight with delight!</p>
                 </div>
-                <div class="footer-section">
+
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/profile.php?id=61567538601001" target="_blank" rel="noopener"><i
+                            class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/rossiflame/" target="_blank" rel="noopener"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/@RossiFlame" target="_blank" rel="noopener"><i
+                            class="fab fa-youtube"></i></a>
+                </div>
+
+                <div class="footer-nav">
                     <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Services</a></li>
-                        <li><a href="#">Portfolio</a></li>
+                        <li><a href="#">Fans</a></li>
+                        <li><a href="#">Bookings</a></li>
                         <li><a href="#">Contact</a></li>
                     </ul>
                 </div>
-                <div class="footer-section">
-                    <h3>Contact Us</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> 123 Street Name, City, Country</p>
-                    <p><i class="fas fa-phone"></i> (123) 456-7890</p>
-                    <p><i class="fas fa-envelope"></i> info@example.com</p>
-                </div>
+
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Company Name. All Rights Reserved.</p>
+                <p>&copy; 2025 Rossi and the Flame.</p>
+                <p>All Rights Reserved.</p>
             </div>
         </div>
     </footer>
-    <!-- Howler.js Audio Library -->
+
+</html>
+
+
+<!-- Howler.js Audio Library -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
 
 <!-- Music Player Scripts -->
 <script src="assets/scripts/player-data.js"></script>
 <script src="assets/scripts/player.js"></script>
+
+<!-- Snail Mail Box Controls -->
+<script>
+    // Anti-spam email replacement
+    document.getElementById('snail-mail-address').innerHTML = 'snail.mail@rossiflame.com';
+
+    // Email button functionality
+    document.getElementById('open-email-btn').addEventListener('click', function (e) {
+        e.preventDefault();
+        window.location.href = 'mailto:snail.mail@rossiflame.com?subject=Snail Mail Request';
+    });
+</script>
+
+<!-- MailerLite Universal -->
+<script>
+    function ml_webform_success_25041447() {
+        var $ = ml_jQuery || jQuery;
+        $('.ml-subscribe-form-25041447 .row-success').show();
+        $('.ml-subscribe-form-25041447 .row-form').hide();
+    }
+</script>
+
+
+<script src="https://groot.mailerlite.com/js/w/webforms.min.js?v176e10baa5e7ed80d35ae235be3d5024"
+    type="text/javascript">
+
+    </script>
+
+<script>
+    fetch("https://assets.mailerlite.com/jsonp/1463390/forms/152218908498069220/takel")
+</script>
+
 </body>
-</html>

@@ -1,3 +1,10 @@
+function loadAlbumTracks(albumData) {
+    const songList = document.getElementById('songList');
+    songList.innerHTML = ''; // This clears everything including placeholder
+    
+    // Your existing code to add tracks...
+}
+
 // Main player functionality
 document.addEventListener('DOMContentLoaded', function() {
     // DOM Elements
@@ -25,23 +32,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Initialize the player
     function init() {
-        renderAlbumList();
-        setupEventListeners();
-        // Set up default album cover to link to Album 1
-document.getElementById('defaultAlbumLink').addEventListener('click', function(e) {
-    e.preventDefault();
-    // Find Album 1 and select it
-    const firstAlbum = albumsData.find(album => album.id === 1);
-    if (firstAlbum) {
-        selectAlbum(firstAlbum);
-        // Play the first song if desired
-        if (firstAlbum.songs.length > 0) {
-            playSong(firstAlbum.songs[0]);
+    renderAlbumList();
+    setupEventListeners();
+    // Set up default album cover to link to Album 1
+    document.getElementById('defaultAlbumLink').addEventListener('click', function(e) {
+        e.preventDefault();
+        // Find Album 1 and select it
+        const firstAlbum = albumsData.find(album => album.id === 1);
+        if (firstAlbum) {
+            selectAlbum(firstAlbum);
+            // Play the first song if desired
+            if (firstAlbum.songs.length > 0) {
+                playSong(firstAlbum.songs[0]);
+            }
         }
-    }
-});
-    }
-
+    });
+}
     // Render the list of albums
     function renderAlbumList() {
         albumList.innerHTML = '';
@@ -54,7 +60,7 @@ document.getElementById('defaultAlbumLink').addEventListener('click', function(e
             albumItem.innerHTML = `
                 <img src="${album.cover}" alt="${album.title}" class="album-item-cover">
                 <div class="album-item-info">
-                    <div class="album-item-title">${album.title}</div>
+                    <div class="album-item-title">${album.displayTitle || album.title}</div>
                     <div class="album-item-artist">${album.artist}</div>
                 </div>
             `;
@@ -111,6 +117,22 @@ document.getElementById('defaultAlbumLink').addEventListener('click', function(e
 
     // Play a song
     function playSong(song) {
+        // Force clear all active states first
+    document.querySelectorAll('.song-item').forEach(item => {
+        item.classList.remove('active');
+    });
+    
+    // Stop and destroy any existing sound completely
+    if (sound) {
+        sound.stop();
+        sound.unload(); // Add this to fully destroy the connection
+        sound = null;   // Clear the reference
+        clearInterval(interval);
+    }
+    
+    // Reset playing state
+    isPlaying = false;
+    playBtn.innerHTML = '<i class="fas fa-play"></i>';
         // Stop current song if playing
         if (sound) {
             sound.stop();
@@ -153,6 +175,15 @@ document.getElementById('defaultAlbumLink').addEventListener('click', function(e
             },
             onload: function() {
                 totalTimeEl.textContent = formatTime(sound.duration());
+            },
+            onloaderror: function() {
+                console.log('Failed to load:', song.file);
+                // Reset UI state
+                isPlaying = false;
+                playBtn.innerHTML = '<i class="fas fa-play"></i>';
+                document.querySelectorAll('.song-item').forEach(item => {
+                item.classList.remove('active');
+        });
             }
         });
         
