@@ -1,5 +1,6 @@
 /* Base Styles and Variables */
 /*******_____********/
+
 :root {
     --primary-color: #FF6161;
     --secondary-color: #a6a6a6;
@@ -313,7 +314,6 @@ nav ul li a.active::after {
 
 .headline h2 {
     text-align: center;
-    font-size: 2rem;
 }
 
 .headline p {
@@ -394,8 +394,7 @@ nav ul li a.active::after {
 /*#####################################################*/
 
 .mailerLite h2 {
-    font-size: 2rem;
-    margin-bottom:  1rem;
+    margin: 0 auto 1rem auto;
 }
 
 .mailerLite {
@@ -1495,7 +1494,42 @@ footer {
 }
 
 /*#####################################################*/
+/*#####################################################*/
+/*************** Booking and Contact Page **************/
+/*################ Temporary Styles ###################*/
+/*#####################################################*/
+
+.booking-page footer {
+    margin-top: 0px;
+}
+
+.contact-page footer {
+    margin-top: 0px;
+}
+
+.temp-contruction-styles {
+    height: 75vh;
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    padding-top: 185px;
+    box-sizing: border-box;
+}
+
+.temp-contruction-styles img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+/*#####################################################*/
+/*#####################################################*/
 /* Media Queries for Responsive Design - Mobile First */
+/*#####################################################*/
 /*#####################################################*/
 
 /******************************/
@@ -1625,18 +1659,17 @@ footer {
         display: block;
     }
 
-    .about-content {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .about-image {
-        order: 0;
+      .headline h2 {
+        font-size: 2rem;
     }
 
     .headline p:nth-child(3) {
         padding-bottom: 3rem !important;
     }
 
+    .mailerLite h2 {
+        font-size: 2rem;
+    }
     .tipJar {
         max-width: 90%;
         margin-bottom: 2.5rem;
@@ -1687,6 +1720,10 @@ footer {
 
     .logo h1 {
         font-size: 2rem;
+    }
+
+    .hero-image {
+        margin-top: 5vh;
     }
 
     .hero h2 {
